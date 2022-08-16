@@ -64,23 +64,7 @@ const swiperReviwes = new Swiper(".reviews-swiper", {
 const btns = new DynamicAdapt("max");  
 btns.init();
 
-const burger = document.querySelector('.header__burger')
 
-burger.addEventListener('click', ()=> {
-    document.body.classList.toggle('ShowMenu')
-})
-
-const dropDownMenuBtn = document.querySelector('.drop-down-menu__btn')
-const dropDownMenuItems = document.querySelector('.drop-down-menu__items')
-dropDownMenuBtn.addEventListener('click', ()=> {
-    if(window.innerWidth > 600) return
-    dropDownMenuItems.classList.toggle('active')
-    if (dropDownMenuItems.style.maxHeight) {
-        dropDownMenuItems.style.maxHeight = null;
-    } else {
-        dropDownMenuItems.style.maxHeight = dropDownMenuItems.scrollHeight + 'px';
-    }
-})
 
 const cardsGame = document.querySelectorAll('.js--render-card')
 
@@ -98,7 +82,17 @@ cardsGame.forEach(element => element.innerHTML =
 </div>`)
 
 const header = document.querySelector('.header')
-window.addEventListener('resize', checkHeaderColor)
+const burger = document.querySelector('.header__burger')
+const headerLinks = document.querySelectorAll('.js--header-link')
+const dropDownMenuBtn = document.querySelector('.drop-down-menu__btn')
+const dropDownMenuItems = document.querySelector('.drop-down-menu__items')
+
+window.addEventListener('resize', ()=> {
+    checkHeaderColor()
+    if(document.body.classList.contains('ShowMenu')){
+        document.body.classList.remove('ShowMenu')
+    }
+})
 window.addEventListener('scroll', checkHeaderColor)
 
 function checkHeaderColor() {
@@ -109,3 +103,30 @@ function checkHeaderColor() {
         header.classList.remove('scrolled')
     }
 }
+burger.addEventListener('click', ()=> {
+    document.body.classList.toggle('ShowMenu')
+})
+// console.log(headerLinks)
+
+headerLinks.forEach(link => {
+    link.addEventListener('click', (event) => {
+        event.preventDefault()
+        // alert('click')
+
+        if(window.innerWidth > 600) return
+        if(document.body.classList.contains('ShowMenu')){
+            document.body.classList.remove('ShowMenu')
+        }
+    })
+})
+
+
+dropDownMenuBtn.addEventListener('click', ()=> {
+    if(window.innerWidth > 600) return
+    dropDownMenuItems.classList.toggle('active')
+    if (dropDownMenuItems.style.maxHeight) {
+        dropDownMenuItems.style.maxHeight = null;
+    } else {
+        dropDownMenuItems.style.maxHeight = dropDownMenuItems.scrollHeight + 'px';
+    }
+})
