@@ -1,0 +1,135 @@
+@mixin mobileFirstBreakpoint($point) {
+   @if $point == laptopL {
+      @media only screen and (min-width: 1439.8px) {
+         @content;
+      }
+   }
+   @else if $point == laptop {
+      @media only screen and (min-width: 1023.8px) {
+         @content;
+      }
+   }
+      @else if $point == tabletL {
+      @media only screen and (min-width:767.8px) {
+         @content;
+      }
+   }
+   @else if $point == tablet {
+      @media only screen and (min-width: 599.8px) {
+         @content;
+      }
+   }
+    @else if $point == mobileL {
+      @media only screen and (min-width: 424.8px) {
+         @content;
+      }
+   }
+    @else if $point == mobile {
+      @media only screen and (min-width: 374.8px) {
+         @content;
+      }
+   }
+}
+
+@mixin desktopFirstBreakpoint($point) {
+   @if $point == laptop {
+      @media only screen and (max-width: 1023.8px) {
+         @content;
+      }
+   }
+      @else if $point == tabletL {
+      @media only screen and (max-width:    767.8px) {
+         @content;
+      }
+   }
+   @else if $point == tablet {
+      @media only screen and (max-width: 599.8px) {
+         @content;
+      }
+   }
+    @else if $point == mobileL {
+      @media only screen and (max-width: 424.8px) {
+         @content;
+      }
+   }
+    @else if $point == mobile {
+      @media only screen and (max-width: 374.8px) {
+         @content;
+      }
+   }
+}
+@mixin pseudo($display: block, $pos: absolute, $content: ''){
+    content: $content;
+    display: $display;
+    position: $pos;
+}
+@mixin truncate($truncation-boundary) {
+    max-width: $truncation-boundary;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@mixin subtitle1 {
+   font-family: 'Lexend', sans-serif;
+   font-weight: 400;
+   font-size: 18px;
+   line-height: 150%;
+}
+@mixin subtitle2 {
+   font-family: 'Lexend', sans-serif;
+   font-weight: 400;
+   font-size: 18px;
+   line-height: 145%;
+}
+@mixin headeing2 {
+   font-family: 'Lexend', sans-serif;
+   font-weight: 600;
+   font-size: 48px;
+   line-height: 148%;
+   @include desktopFirstBreakpoint(tabletL) {
+      font-size: 36px;
+   }
+   @include desktopFirstBreakpoint(mobileL) {
+      font-size: 28px;
+   }
+}
+@mixin headeing3 {
+   font-family: 'Lexend', sans-serif;
+   font-weight: 600;
+   font-size: 36px;
+   line-height: 140%;
+   @include desktopFirstBreakpoint(tabletL) {
+      font-size: 32px;
+   }
+   @include desktopFirstBreakpoint(mobileL) {
+      font-size: 24px;
+   }
+}
+@mixin headeing5 {
+   font-family: 'Lexend', sans-serif;
+   font-weight: 500;
+   font-size: 24px;
+   line-height: 140%;
+   @include desktopFirstBreakpoint(tabletL) {
+      font-size: 20px;
+   }
+   @include desktopFirstBreakpoint(mobileL) {
+      font-size: 18px;
+   }
+}
+@mixin headeing6 {
+   font-family: 'Lexend', sans-serif;
+   font-weight: 500;
+   font-size: 20px;
+   line-height: 130%;
+   @include desktopFirstBreakpoint(tablet) {
+      font-size: 16px;
+   }
+}
+@mixin caption1 {
+   font-family: 'Roboto', sans-serif;
+   font-weight: 500;
+   font-size: 16;
+   line-height: 140%;
+}

@@ -1,0 +1,77 @@
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Lexend', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+//font-family: 'Roboto', sans-serif;
+// ! common styles
+.wrapper {
+    max-width: 100vw;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1096px + $GlobalPadding * 2;
+    width: 100%;
+    padding:0 15px;
+    margin: 0 auto;
+    &_small {
+        max-width: 916px + $GlobalPadding * 2;
+        width: 100%;
+        padding: 15px;
+        margin: 0 auto;
+    }
+}
+.img {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+}
+.btn {
+    background: $PrimaryColor500;
+    min-height: 40px;min-width: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;border-radius: 8px;
+    color: $Neutral100;
+    cursor: pointer;
+    transition: background-color .2s ease;
+    @include subtitle2;
+    @include truncate(250px);
+    padding: 9px 16px;
+    &:hover:not(&_clear){
+        background: $PrimaryColor400;
+    }
+    &_clear {
+        background: transparent;
+        box-shadow:inset 0 0 0 1px $Neutral100;
+        transition:box-shadow .3s ease, color .3s ease;
+        &:hover{
+            box-shadow:inset 0 0 0 30px $Neutral100;
+            color: $Neutral1000;
+        }
+    }
+    &_large {
+        @include subtitle1;
+        padding: 16px 32px;
+    }
+}
+@include desktopFirstBreakpoint(tabletL) {
+    .btn {
+        min-width: 0;
+        padding: 7px 10px;
+    }
+}

@@ -1,0 +1,91 @@
+.ganres {
+    background: $Neutral300;
+}
+.ganres__container {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.ganres__header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.section-title {
+    @include headeing3
+}
+.section-see-more-btn {
+    @include subtitle1;
+    color: $PrimaryColor500;
+    transition: color .2s ease;
+    padding-left: 10px;
+    &:hover {
+        color: $PrimaryColor400;
+    }
+}
+
+.ganres__row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    grid-gap: 16px;
+}
+.row-ganres-item {
+    border-radius: 8px;
+    overflow: hidden;
+    height: 169px;
+    position: relative;
+    display: grid;
+    place-items: center;
+    &::after {
+        @include pseudo;
+        width: 100%;height: 100%;
+        top: 0;left: 0;
+        background: #000;
+        opacity: 0.7;
+        transition: opacity .2s ease;
+    }
+    &:hover::after {
+        opacity: 0.8;
+    }
+}
+.row-ganres-item__img {
+    position: absolute;
+    width: 100%;height: 100%;
+    left: 0;top: 0;
+}
+.row-ganres-item__text {
+    position: absolute;
+    display: block;
+    min-width: 100%;height: 100%;
+    z-index: 2;
+    @include headeing6;
+    color: $Neutral100;
+    @include truncate(130px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@include desktopFirstBreakpoint(laptop) {
+    .row-ganres-item:nth-last-child(1){
+        display: none;
+    }
+}
+@include desktopFirstBreakpoint(tabletL) {
+    .row-ganres-item:nth-last-child(2){
+        display: none;
+    }
+}
+@include desktopFirstBreakpoint(tablet) {
+    .row-ganres-item:nth-last-child(3),
+    .row-ganres-item:nth-last-child(4)
+    {
+        display: none;
+    }
+    .ganres__container {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+}

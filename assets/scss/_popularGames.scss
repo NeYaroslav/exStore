@@ -1,0 +1,41 @@
+.popular-games {
+    background: $Neutral300;
+}
+.popular-games__container {
+    padding-top: 30px;
+    padding-bottom: 100px;
+}
+.popular-games__header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+.popular-games__rows {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(262px, 1fr));
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 10px;
+    overflow: hidden;
+}
+.popular-games__card.js--render-card {
+    margin: 0 auto;
+}
+@include desktopFirstBreakpoint(tablet) {
+    .popular-games__rows {
+        grid-template-columns: 1fr;
+    }
+    .popular-games__card.js--render-card:nth-last-child(1),
+    .popular-games__card.js--render-card:nth-last-child(2),
+    .popular-games__card.js--render-card:nth-last-child(3),
+    .popular-games__card.js--render-card:nth-last-child(4),
+    .popular-games__card.js--render-card:nth-last-child(5)
+     {
+        display: none;
+    }
+    .popular-games__container {
+        padding-top: 10px;
+        padding-bottom: 35px;
+    }
+}

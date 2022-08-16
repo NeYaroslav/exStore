@@ -1,0 +1,16 @@
+@import "./variables"; // can be changed
+@import "./mixins";
+@import './normailize';
+@import "./basis"; // can be changed
+@import "./header";
+@import "./news";
+@import "./benefits";
+@import "./ganres";
+@import "./bestSellers";
+@import "./gameCard";
+@import "./popularGames";
+@import "./comingSoon";
+@import "./reviews";
+@import "./footer"
+
+// @include truncate(800px)
