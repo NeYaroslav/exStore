@@ -91,6 +91,7 @@ window.addEventListener('resize', ()=> {
     checkHeaderColor()
     if(document.body.classList.contains('ShowMenu')){
         document.body.classList.remove('ShowMenu')
+        dropDownMenuItems.style.maxHeight = null;
     }
 })
 window.addEventListener('scroll', checkHeaderColor)
